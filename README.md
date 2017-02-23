@@ -15,25 +15,25 @@ This is our MVP proposal, if we have additional time we would like experiment wi
 splitting bodies or adding two bodies to the screen.
 
 **Learning Goals:**
--Learn more about git (JD)
--Utlizing py.game (JD + CG)
--Practicing installing packages and debugging (CG)
--Have a completed MVP product that is functional vs. a complicated and unfinished product (CG + JD)
+- Learn more about git (JD)
+- Utlizing py.game (JD + CG)
+- Practicing installing packages and debugging (CG)
+- Have a completed MVP product that is functional vs. a complicated and unfinished product (CG + JD)
 
 **Libraries:**
--pyo
--pygame
--pysynth
--pyaudio
+- pyo
+- pygame
+- pysynth
+- pyaudio
 - + More that we plan on researching
 
 **By Next Week's Mid Check-In:**
--Packages installed
--Libraries determined
--Classes and objects determined
--Pseudo coding
--Dividing work
+- Packages installed
+- Libraries determined
+- Classes and objects determined
+- Pseudo coding
+- Dividing work
 
 **Risks:**
--Time
--Complexity of project 
+- Time
+- Complexity of project 
