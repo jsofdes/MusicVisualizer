@@ -67,9 +67,9 @@ class MusicPlayerWindow(object):
             get = self.win.get_events(event)
             if get:
                 pg.display.set_caption(get)
-                play_selected_song(get)
                 self.make_visulization(get, 500, 500)
                 song_data = analyze_audio(song_dict.get(get))
+                play_selected_song(get)
                 self.make_visulization(song_data, 500, 600)
                 pg.event.clear()
                 return get
