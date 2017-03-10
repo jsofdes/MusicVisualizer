@@ -3,12 +3,12 @@ import math
 import pygame
 class Flower(object):
     def __init__(self):
-        self.color = [0, 0, 255]
+        self.color = [255, 0, 0]
         self.startangles = []
         self.endangles = []
         self.time = []
-                self.radius_x = []
-                self.radius_y = []
+        self.radius_x = []
+        self.radius_y = []
     def changeColor(self):
         y = [random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)]
         return y
@@ -31,18 +31,24 @@ class Flower(object):
     def getCenter(self, x):
         rad_petal = 20
         petals = 360/x
-        for i in range(0, x):
-            self.radius_x.append(rad_petal*math.sin((x/2)+(2*x/2)))
-            self.radius_y.append(rad_petal*math.cos((x/2)+(2*x/2)))
+        for i in range(0, petals):
+            self.radius_x.append((rad_petal*math.sin(math.radians((x/2)+(2*i*x/2)))))
+            self.radius_y.append((rad_petal*math.cos(math.radians((x/2)+(2*i*x/2)))))
+        print("radx, y", self.radius_x,self.radius_y)
 
     def drawFlower(self, x, surfscreen):
         surface = pygame.Surface((100, 100))
+        surface.set_alpha(100)
         rectangle_wh = 100
-        pygame.draw.arc(surface, self.color, (0, 0, 100, 100), -x/2, x/2)
+        pygame.draw.arc(surface, self.color, (0, 0, 100, 100), math.radians(-x/2), math.radians(x/2), 5)
         print("drewarc")
+        print(x)
         rot_arc = pygame.transform.rotate(surface, x/2)
-        y=rot_surface.get_rect().center = radius_x(i), radius_y(i)
-        pygame.blit(y,surfscreen)
+        petals = 360/x
+        for i in range(0, petals):
+            print(i)
+            rot_arc.get_rect().center = (self.radius_x[i], self.radius_y[i])
+            surfscreen.blit(rot_arc, (self.radius_x[i], self.radius_y[i]))
         print("draw screen")
         # if time == self.time(i):
         #     number_petals = i % (360/x)
