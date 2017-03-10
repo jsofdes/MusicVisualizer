@@ -6,6 +6,7 @@ import pygame.mixer as music
 from guipack import movewindow, scrollwindow
 from guipack.subrect import Subrect
 from analysis import analyze_audio
+from flowers import Flower
 # def music_selector(song_name):
 
 song_dict = {
@@ -70,6 +71,8 @@ class MusicPlayerWindow(object):
                 self.make_visulization(get, 500, 500)
                 song_data = analyze_audio(song_dict.get(get))
                 play_selected_song(get)
+                print("played song")
+                self.make_flower(30)
                 self.make_visulization(song_data, 500, 600)
                 pg.event.clear()
                 return get
@@ -84,6 +87,12 @@ class MusicPlayerWindow(object):
             if not self.already_ran:
                 self.make_visulization('No Song Selected', 500, 500 )
             self.clock.tick(self.fps)
+
+    def make_flower(self,x):
+        flower = Flower()
+        flower.changeColor()
+        flower.getCenter(x)
+        flower.drawFlower(x, self.screen)
 
 
 if __name__ == "__main__":
