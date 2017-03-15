@@ -6,12 +6,14 @@ import pygame.mixer as music
 from guipack import movewindow, scrollwindow
 from guipack.subrect import Subrect
 from analysis import analyze_audio
-from flowers import Flower
+from bars_visual import Bar
 # def music_selector(song_name):
 
 song_dict = {
     'Daughter': './music_files/daughter.wav',
-    'It Aint Me': './music_files/selenagomez.wav'
+    'It Ain''t Me': './music_files/selenagomez.wav',
+    'Stronger': './music_files/stronger.wav'
+
 }
 
 
@@ -71,35 +73,35 @@ class MusicPlayerWindow(object):
                 self.make_visulization(get, 500, 500)
                 song_data = analyze_audio(song_dict.get(get))
                 play_selected_song(get)
-                print("played song")
-                self.make_flower(30)
-                self.make_visulization(song_data, 500, 600)
+                self.make_bar(360, song_data)
+                # self.make_visulization(song_data, 500, 600)
                 pg.event.clear()
                 return get
-
-
 
     def main_loop(self):
         while not self.done:
             self.event_loop()
-            self.screen.fill((25, 155, 255))
+            self.screen.fill((0, 0, 0))
             self.win.update(self.screen)
             if not self.already_ran:
                 self.make_visulization('No Song Selected', 500, 500 )
             self.clock.tick(self.fps)
 
-    def make_flower(self,x):
-        flower = Flower()
-        flower.changeColor()
-        flower.getCenter(x)
-        flower.drawFlower(x, self.screen)
+    def make_bar(self, song_length, song_anal):
+        bar = Bar()
+        bar.song_length = song_length
+        bar.song_anal = song_anal
+        bar.getCenter(song_length)
+        bar.drawBar(song_length, self.screen)
+
+
 
 
 if __name__ == "__main__":
     os.environ['SDL_VIDEO_CENTERED'] = '1'
     pg.init()
     pg.display.set_caption("Music Player")
-    pg.display.set_mode((1000, 1000))
+    pg.display.set_mode((800, 600))
     FONT = pg.font.SysFont("timesnewroman", 15)
     run_it = MusicPlayerWindow()
     run_it.main_loop()

@@ -149,9 +149,6 @@ def analyze_audio(music_path):
     plt.colorbar(format='%+02.0f dB')
 
     plt.tight_layout()
-    print('Estimated tempo:        %.2f BPM' % tempo)
-
-    print('First 5 beat frames:   ', beats[:50])
 
     # Frame numbers are great and all, but when do those beats occur?
-    return('First 5 beat times:    ', librosa.frames_to_time(beats[:50], sr=sr))
+    return(librosa.frames_to_time(beats[:5000], sr=sr))
