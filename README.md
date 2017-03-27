@@ -1,4 +1,5 @@
 # MusicVisualizer
+Instructions:To play music player, open the folder "music player" and enter in your console "python3 music_player.py"
 Visualizing Music w/ Python
 ==============
 Proposal by: Christina Gee and Juanita Desouza
@@ -36,4 +37,4 @@ splitting bodies or adding two bodies to the screen.
 
 **Risks:**
 - Time
-- Complexity of project 
+- Complexity of project
